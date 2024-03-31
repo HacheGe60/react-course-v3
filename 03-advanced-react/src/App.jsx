@@ -1,4 +1,4 @@
-import Starter from './tutorial/02-useEffect/starter/03-multiple-effects.jsx';
+import Starter from './tutorial/03-conditional-rendering/starter/01-multiple-returns-basics.jsx';
 
 function App() {
 	return (
