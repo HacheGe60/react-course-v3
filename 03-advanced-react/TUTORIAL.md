@@ -20,12 +20,12 @@
 import Starter from './tutorial/1-useState/starter/1-error-example';
 import Final from './tutorial/1-useState/final/1-error-example';
 function App() {
-  return (
-    <div className='container'>
-      <Starter />
-      <Final />
-    </div>
-  );
+	return (
+		<div className='container'>
+			<Starter />
+			<Final />
+		</div>
+	);
 }
 
 export default App;
@@ -48,22 +48,26 @@ import Starter from './tutorial/01-useState/starter/01-error-example.jsx';
 
 ```js
 const ErrorExample = () => {
-  let count = 0;
+	let count = 0;
 
-  const handleClick = () => {
-    count = count + 1;
-    console.log(count);
-    // preserve value between renders
-    // trigger re-render
-  };
-  return (
-    <div>
-      <h2>{count}</h2>
-      <button type='button' className='btn' onClick={handleClick}>
-        increment
-      </button>
-    </div>
-  );
+	const handleClick = () => {
+		count = count + 1;
+		console.log(count);
+		// preserve value between renders
+		// trigger re-render
+	};
+	return (
+		<div>
+			<h2>{count}</h2>
+			<button
+				type='button'
+				className='btn'
+				onClick={handleClick}
+			>
+				increment
+			</button>
+		</div>
+	);
 };
 
 export default ErrorExample;
@@ -86,27 +90,30 @@ import Starter from './tutorial/01-useState/starter/02-useState-basics.jsx';
 import { useState } from 'react';
 
 const UseStateBasics = () => {
-  // console.log(useState());
-  // console.log(useState('jo koy'));
-  // const value = useState()[0];
-  // const handler = useState()[1];
-  // console.log(value, handler);
+	// console.log(useState());
+	// console.log(useState('jo koy'));
+	// const value = useState()[0];
+	// const handler = useState()[1];
+	// console.log(value, handler);
 
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    // console.log(count)
-    setCount(count + 1);
-    // be careful, we can set any value
-    // setCount('pants');
-  };
-  return (
-    <div>
-      <h4>You clicked {count} times</h4>
-      <button className='btn' onClick={handleClick}>
-        Click me
-      </button>
-    </div>
-  );
+	const [count, setCount] = useState(0);
+	const handleClick = () => {
+		// console.log(count)
+		setCount(count + 1);
+		// be careful, we can set any value
+		// setCount('pants');
+	};
+	return (
+		<div>
+			<h4>You clicked {count} times</h4>
+			<button
+				className='btn'
+				onClick={handleClick}
+			>
+				Click me
+			</button>
+		</div>
+	);
 };
 
 export default UseStateBasics;
@@ -156,20 +163,23 @@ Setup Challenge :
 import React from 'react';
 import { data } from '../../../data';
 const UseStateArray = () => {
-  const [people, setPeople] = React.useState(data);
+	const [people, setPeople] = React.useState(data);
 
-  return (
-    <div>
-      {people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-          </div>
-        );
-      })}
-    </div>
-  );
+	return (
+		<div>
+			{people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+					</div>
+				);
+			})}
+		</div>
+	);
 };
 
 export default UseStateArray;
@@ -183,32 +193,35 @@ export default UseStateArray;
 import React from 'react';
 import { data } from '../../../data';
 const UseStateArray = () => {
-  const [people, setPeople] = React.useState(data);
+	const [people, setPeople] = React.useState(data);
 
-  const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
-  };
-  return (
-    <div>
-      {people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      <button
-        className='btn'
-        style={{ marginTop: '2rem' }}
-        onClick={() => setPeople([])}
-      >
-        clear items
-      </button>
-    </div>
-  );
+	const removeItem = (id) => {
+		let newPeople = people.filter((person) => person.id !== id);
+		setPeople(newPeople);
+	};
+	return (
+		<div>
+			{people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			<button
+				className='btn'
+				style={{ marginTop: '2rem' }}
+				onClick={() => setPeople([])}
+			>
+				clear items
+			</button>
+		</div>
+	);
 };
 
 export default UseStateArray;
@@ -239,25 +252,28 @@ Setup Challenge :
 import { useState } from 'react';
 
 const UseStateObject = () => {
-  const [name, setName] = useState('peter');
-  const [age, setAge] = useState(24);
-  const [hobby, setHobby] = useState('read books');
+	const [name, setName] = useState('peter');
+	const [age, setAge] = useState(24);
+	const [hobby, setHobby] = useState('read books');
 
-  const displayPerson = () => {
-    setName('john');
-    setAge(28);
-    setHobby('scream at the computer');
-  };
-  return (
-    <>
-      <h3>{name}</h3>
-      <h3>{age}</h3>
-      <h4>Enjoys To: {hobby}</h4>
-      <button className='btn' onClick={displayPerson}>
-        show john
-      </button>
-    </>
-  );
+	const displayPerson = () => {
+		setName('john');
+		setAge(28);
+		setHobby('scream at the computer');
+	};
+	return (
+		<>
+			<h3>{name}</h3>
+			<h3>{age}</h3>
+			<h4>Enjoys To: {hobby}</h4>
+			<button
+				className='btn'
+				onClick={displayPerson}
+			>
+				show john
+			</button>
+		</>
+	);
 };
 
 export default UseStateObject;
@@ -277,29 +293,32 @@ React 18 ensures that state updates invoked from any location will be batched by
 import { useState } from 'react';
 
 const UseStateObject = () => {
-  const [person, setPerson] = useState({
-    name: 'peter',
-    age: 24,
-    hobby: 'read books',
-  });
+	const [person, setPerson] = useState({
+		name: 'peter',
+		age: 24,
+		hobby: 'read books',
+	});
 
-  const displayPerson = () => {
-    setPerson({ name: 'john', age: 28, hobby: 'scream at the computer' });
-    // be careful, don't overwrite
-    // setPerson('shakeAndBake');
-    // setPerson({ name: 'susan' });
-    // setPerson({ ...person, name: 'susan' });
-  };
-  return (
-    <>
-      <h3>{person.name}</h3>
-      <h3>{person.age}</h3>
-      <h4>Enjoys To: {person.hobby}</h4>
-      <button className='btn' onClick={displayPerson}>
-        show john
-      </button>
-    </>
-  );
+	const displayPerson = () => {
+		setPerson({ name: 'john', age: 28, hobby: 'scream at the computer' });
+		// be careful, don't overwrite
+		// setPerson('shakeAndBake');
+		// setPerson({ name: 'susan' });
+		// setPerson({ ...person, name: 'susan' });
+	};
+	return (
+		<>
+			<h3>{person.name}</h3>
+			<h3>{person.age}</h3>
+			<h4>Enjoys To: {person.hobby}</h4>
+			<button
+				className='btn'
+				onClick={displayPerson}
+			>
+				show john
+			</button>
+		</>
+	);
 };
 
 export default UseStateObject;
@@ -325,24 +344,27 @@ trivial example
 import { useState } from 'react';
 
 const UseStateGotcha = () => {
-  const [value, setValue] = useState(0);
+	const [value, setValue] = useState(0);
 
-  const handleClick = () => {
-    setValue(value + 1);
-    //  be careful it's the old value
-    console.log(value);
-    //  so if you have any functionality
-    // that relies on the latest value
-    // it will be wrong !!!
-  };
-  return (
-    <div>
-      <h1>{value}</h1>
-      <button className='btn' onClick={handleClick}>
-        increase
-      </button>
-    </div>
-  );
+	const handleClick = () => {
+		setValue(value + 1);
+		//  be careful it's the old value
+		console.log(value);
+		//  so if you have any functionality
+		// that relies on the latest value
+		// it will be wrong !!!
+	};
+	return (
+		<div>
+			<h1>{value}</h1>
+			<button
+				className='btn'
+				onClick={handleClick}
+			>
+				increase
+			</button>
+		</div>
+	);
 };
 
 export default UseStateGotcha;
@@ -352,7 +374,7 @@ If you want to update the state immediately and synchronously, you can pass a fu
 
 ```js
 setState((prevState) => {
-  return { ...prevState, value: newValue };
+	return { ...prevState, value: newValue };
 });
 ```
 
@@ -360,12 +382,12 @@ This can be useful if you need to update the state based on the previous state, 
 
 ```js
 const handleClick = () => {
-  setValue((currentState) => {
-    // must return otherwise undefined
-    // below is the latest/current state value
-    const newState = currentState + 1;
-    return newState;
-  });
+	setValue((currentState) => {
+		// must return otherwise undefined
+		// below is the latest/current state value
+		const newState = currentState + 1;
+		return newState;
+	});
 };
 ```
 
@@ -373,16 +395,16 @@ const handleClick = () => {
 
 ```js
 const handleClick = () => {
-  // setTimeout(() => {
-  // console.log('clicked the button');
-  //   setValue(value + 1);
-  // }, 3000);
-  setTimeout(() => {
-    console.log('clicked the button');
-    setValue((currentState) => {
-      return currentState + 1;
-    });
-  }, 3000);
+	// setTimeout(() => {
+	// console.log('clicked the button');
+	//   setValue(value + 1);
+	// }, 3000);
+	setTimeout(() => {
+		console.log('clicked the button');
+		setValue((currentState) => {
+			return currentState + 1;
+		});
+	}, 3000);
 };
 ```
 
@@ -400,21 +422,24 @@ import Starter from './tutorial/02-useEffect/starter/01-code-example.jsx';
 import { useState } from 'react';
 
 const ComponentExample = () => {
-  const [value, setValue] = useState(0);
-  const sayHello = () => {
-    console.log('hello there');
-    // be careful
-    // setValue(value + 1);
-  };
-  sayHello();
-  return (
-    <div>
-      <h1>value : {value}</h1>
-      <button className='btn' onClick={() => setValue(value + 1)}>
-        click me
-      </button>
-    </div>
-  );
+	const [value, setValue] = useState(0);
+	const sayHello = () => {
+		console.log('hello there');
+		// be careful
+		// setValue(value + 1);
+	};
+	sayHello();
+	return (
+		<div>
+			<h1>value : {value}</h1>
+			<button
+				className='btn'
+				onClick={() => setValue(value + 1)}
+			>
+				click me
+			</button>
+		</div>
+	);
 };
 export default ComponentExample;
 ```
@@ -425,9 +450,9 @@ export default ComponentExample;
 const [value, setValue] = useState(0);
 
 const sayHello = () => {
-  console.log('hello there');
-  // be careful, you will have infinite loop
-  setValue(value + 1);
+	console.log('hello there');
+	// be careful, you will have infinite loop
+	setValue(value + 1);
 };
 sayHello();
 ```
@@ -465,28 +490,31 @@ useEffect is a hook in React that allows you to perform side effects in function
 import { useState, useEffect } from 'react';
 
 const UseEffectBasics = () => {
-  const [value, setValue] = useState(0);
-  const sayHello = () => {
-    console.log('hello there');
-  };
+	const [value, setValue] = useState(0);
+	const sayHello = () => {
+		console.log('hello there');
+	};
 
-  sayHello();
+	sayHello();
 
-  // useEffect(() => {
-  //   console.log('hello from useEffect');
-  // });
+	// useEffect(() => {
+	//   console.log('hello from useEffect');
+	// });
 
-  useEffect(() => {
-    console.log('hello from useEffect');
-  }, []);
-  return (
-    <div>
-      <h1>value : {value}</h1>
-      <button className='btn' onClick={() => setValue(value + 1)}>
-        click me
-      </button>
-    </div>
-  );
+	useEffect(() => {
+		console.log('hello from useEffect');
+	}, []);
+	return (
+		<div>
+			<h1>value : {value}</h1>
+			<button
+				className='btn'
+				onClick={() => setValue(value + 1)}
+			>
+				click me
+			</button>
+		</div>
+	);
 };
 export default UseEffectBasics;
 ```
@@ -501,28 +529,34 @@ import Starter from './tutorial/02-useEffect/starter/03-multiple-effects.jsx';
 import { useState, useEffect } from 'react';
 
 const MultipleEffects = () => {
-  const [value, setValue] = useState(0);
-  const [secondValue, setSecondValue] = useState(0);
+	const [value, setValue] = useState(0);
+	const [secondValue, setSecondValue] = useState(0);
 
-  useEffect(() => {
-    console.log('hello from first useEffect');
-  }, [value]);
+	useEffect(() => {
+		console.log('hello from first useEffect');
+	}, [value]);
 
-  useEffect(() => {
-    console.log('hello from second useEffect');
-  }, [secondValue]);
-  return (
-    <div>
-      <h1>value : {value}</h1>
-      <button className='btn' onClick={() => setValue(value + 1)}>
-        value
-      </button>
-      <h1>second value : {secondValue}</h1>
-      <button className='btn' onClick={() => setSecondValue(secondValue + 1)}>
-        second value
-      </button>
-    </div>
-  );
+	useEffect(() => {
+		console.log('hello from second useEffect');
+	}, [secondValue]);
+	return (
+		<div>
+			<h1>value : {value}</h1>
+			<button
+				className='btn'
+				onClick={() => setValue(value + 1)}
+			>
+				value
+			</button>
+			<h1>second value : {secondValue}</h1>
+			<button
+				className='btn'
+				onClick={() => setSecondValue(secondValue + 1)}
+			>
+				second value
+			</button>
+		</div>
+	);
 };
 export default MultipleEffects;
 ```
@@ -557,40 +591,43 @@ import { useState, useEffect } from 'react';
 const url = 'https://api.github.com/users';
 
 const FetchData = () => {
-  const [users, setUsers] = useState([]);
+	const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    // you can also setup function outside
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const users = await response.json();
-        setUsers(users);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
-  return (
-    <section>
-      <h3>github users</h3>
-      <ul className='users'>
-        {users.map((user) => {
-          const { id, login, avatar_url, html_url } = user;
-          return (
-            <li key={id}>
-              <img src={avatar_url} alt={login} />
-              <div>
-                <h5>{login}</h5>
-                <a href={html_url}>profile</a>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
+	useEffect(() => {
+		// you can also setup function outside
+		const fetchData = async () => {
+			try {
+				const response = await fetch(url);
+				const users = await response.json();
+				setUsers(users);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchData();
+	}, []);
+	return (
+		<section>
+			<h3>github users</h3>
+			<ul className='users'>
+				{users.map((user) => {
+					const { id, login, avatar_url, html_url } = user;
+					return (
+						<li key={id}>
+							<img
+								src={avatar_url}
+								alt={login}
+							/>
+							<div>
+								<h5>{login}</h5>
+								<a href={html_url}>profile</a>
+							</div>
+						</li>
+					);
+				})}
+			</ul>
+		</section>
+	);
 };
 export default FetchData;
 ```
@@ -614,21 +651,24 @@ Will Cover After 03-conditional-rendering
 import { useEffect, useState } from 'react';
 
 const CleanupFunction = () => {
-  const [toggle, setToggle] = useState(false);
-  return (
-    <div>
-      <button className='btn' onClick={() => setToggle(!toggle)}>
-        toggle component
-      </button>
-      {toggle && <RandomComponent />}
-    </div>
-  );
+	const [toggle, setToggle] = useState(false);
+	return (
+		<div>
+			<button
+				className='btn'
+				onClick={() => setToggle(!toggle)}
+			>
+				toggle component
+			</button>
+			{toggle && <RandomComponent />}
+		</div>
+	);
 };
 const RandomComponent = () => {
-  useEffect(() => {
-    console.log('hmm, this is interesting');
-  }, []);
-  return <h1>hello there</h1>;
+	useEffect(() => {
+		console.log('hmm, this is interesting');
+	}, []);
+	return <h1>hello there</h1>;
 };
 export default CleanupFunction;
 ```
@@ -637,14 +677,14 @@ Vanilla JS
 
 ```js
 const intID = setInterval(() => {
-  console.log('hello from interval');
+	console.log('hello from interval');
 }, 1000);
 clearInterval(intID);
 ```
 
 ```js
 const someFunc = () => {
-  // some logic here
+	// some logic here
 };
 window.addEventListener('scroll', someFunc);
 window.removeEventListener('scroll', someFunc);
@@ -654,39 +694,42 @@ window.removeEventListener('scroll', someFunc);
 import { useEffect, useState } from 'react';
 
 const CleanupFunction = () => {
-  const [toggle, setToggle] = useState(false);
-  return (
-    <div>
-      <button className='btn' onClick={() => setToggle(!toggle)}>
-        toggle component
-      </button>
-      {toggle && <RandomComponent />}
-    </div>
-  );
+	const [toggle, setToggle] = useState(false);
+	return (
+		<div>
+			<button
+				className='btn'
+				onClick={() => setToggle(!toggle)}
+			>
+				toggle component
+			</button>
+			{toggle && <RandomComponent />}
+		</div>
+	);
 };
 const RandomComponent = () => {
-  useEffect(() => {
-    // console.log('hmm, this is interesting');
-    const intID = setInterval(() => {
-      console.log('hello from interval');
-    }, 1000);
-    // does not stop, keeps going
-    // every time we render component new interval gets created
-    return () => clearInterval(intID);
-  }, []);
-  return <h1>hello there</h1>;
+	useEffect(() => {
+		// console.log('hmm, this is interesting');
+		const intID = setInterval(() => {
+			console.log('hello from interval');
+		}, 1000);
+		// does not stop, keeps going
+		// every time we render component new interval gets created
+		return () => clearInterval(intID);
+	}, []);
+	return <h1>hello there</h1>;
 };
 export default CleanupFunction;
 ```
 
 ```js
 useEffect(() => {
-  // console.log('hmm, this is interesting');
-  const someFunc = () => {
-    // some logic here
-  };
-  window.addEventListener('scroll', someFunc);
-  return () => window.removeEventListener('scroll', someFunc);
+	// console.log('hmm, this is interesting');
+	const someFunc = () => {
+		// some logic here
+	};
+	window.addEventListener('scroll', someFunc);
+	return () => window.removeEventListener('scroll', someFunc);
 }, []);
 ```
 
@@ -704,11 +747,11 @@ useEffect(() => {
 import { useHook } from 'library';
 
 function Example() {
-  const { data, error, isLoading } = useHook('url', fetcher);
+	const { data, error, isLoading } = useHook('url', fetcher);
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
-  return <div>hello {data.name}!</div>;
+	if (error) return <div>failed to load</div>;
+	if (isLoading) return <div>loading...</div>;
+	return <div>hello {data.name}!</div>;
 }
 ```
 
@@ -724,12 +767,12 @@ Vanilla JS
 
 ```js
 const sayHello = (name) => {
-  if (name) {
-    return `Hello, ${name}`;
-    // exit the function, skip rest of the code
-  }
-  // so if name provided, won't get to this line
-  return 'Hello, there';
+	if (name) {
+		return `Hello, ${name}`;
+		// exit the function, skip rest of the code
+	}
+	// so if name provided, won't get to this line
+	return 'Hello, there';
 };
 
 const firstResp = sayHello('john');
@@ -744,23 +787,23 @@ console.log(secondResp); // Hello, there
 import { useEffect, useState } from 'react';
 
 const MultipleReturnsBasics = () => {
-  // while fetching data
-  // convention with boolean values "isSomething"
-  const [isLoading, setIsLoading] = useState(true);
+	// while fetching data
+	// convention with boolean values "isSomething"
+	const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      // done fetching data
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+	useEffect(() => {
+		setTimeout(() => {
+			// done fetching data
+			setIsLoading(false);
+		}, 3000);
+	}, []);
 
-  // can return entire app
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
+	// can return entire app
+	if (isLoading) {
+		return <h2>Loading...</h2>;
+	}
 
-  return <h2>My App</h2>;
+	return <h2>My App</h2>;
 };
 export default MultipleReturnsBasics;
 ```
@@ -784,24 +827,24 @@ import { useEffect, useState } from 'react';
 const url = 'https://api.github.com/users/QuincyLarson';
 
 const MultipleReturnsFetchData = () => {
-  const [user, setUser] = useState(null);
+	const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const resp = await fetch(url);
-        const user = await resp.json();
-        console.log(user);
-      } catch (error) {
-        // fetch only cares about network errors
-        // will work with axios
-        console.log(error);
-      }
-    };
-    fetchUser();
-  }, []);
+	useEffect(() => {
+		const fetchUser = async () => {
+			try {
+				const resp = await fetch(url);
+				const user = await resp.json();
+				console.log(user);
+			} catch (error) {
+				// fetch only cares about network errors
+				// will work with axios
+				console.log(error);
+			}
+		};
+		fetchUser();
+	}, []);
 
-  return <h2>Fetch Example</h2>;
+	return <h2>Fetch Example</h2>;
 };
 export default MultipleReturnsFetchData;
 ```
@@ -819,47 +862,47 @@ import { useEffect, useState } from 'react';
 const url = 'https://api.github.com/users/QuincyLarson';
 
 const MultipleReturnsFetchData = () => {
-  // convention to setup booleans with isSomething
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState(null);
+	// convention to setup booleans with isSomething
+	const [isLoading, setIsLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
+	const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const resp = await fetch(url);
-        const user = await resp.json();
-        // console.log(user);
-        setUser(user);
-      } catch (error) {
-        setIsError(true);
-        console.log(error);
-      }
-      // hide loading
-      setIsLoading(false);
-    };
-    fetchUser();
-  }, []);
-  // order matters
-  // don't place user JSX before loading or error
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
-  if (isError) {
-    return <h2>There was an error...</h2>;
-  }
-  return (
-    <div>
-      <img
-        style={{ width: '150px', borderRadius: '25px' }}
-        src={user.avatar_url}
-        alt={user.name}
-      />
-      <h2>{user.name}</h2>
-      <h4>works at {user.company}</h4>
-      <p>{user.bio}</p>
-    </div>
-  );
+	useEffect(() => {
+		const fetchUser = async () => {
+			try {
+				const resp = await fetch(url);
+				const user = await resp.json();
+				// console.log(user);
+				setUser(user);
+			} catch (error) {
+				setIsError(true);
+				console.log(error);
+			}
+			// hide loading
+			setIsLoading(false);
+		};
+		fetchUser();
+	}, []);
+	// order matters
+	// don't place user JSX before loading or error
+	if (isLoading) {
+		return <h2>Loading...</h2>;
+	}
+	if (isError) {
+		return <h2>There was an error...</h2>;
+	}
+	return (
+		<div>
+			<img
+				style={{ width: '150px', borderRadius: '25px' }}
+				src={user.avatar_url}
+				alt={user.name}
+			/>
+			<h2>{user.name}</h2>
+			<h4>works at {user.company}</h4>
+			<p>{user.bio}</p>
+		</div>
+	);
 };
 export default MultipleReturnsFetchData;
 ```
@@ -904,16 +947,16 @@ Challenge :
 
 ```js
 return (
-  <div>
-    <img
-      style={{ width: '100px', borderRadius: '25px' }}
-      src={avatar_url}
-      alt={name}
-    />
-    <h2>{name}</h2>
-    <h4>works at {company}</h4>
-    <p>{bio}</p>
-  </div>
+	<div>
+		<img
+			style={{ width: '100px', borderRadius: '25px' }}
+			src={avatar_url}
+			alt={name}
+		/>
+		<h2>{name}</h2>
+		<h4>works at {company}</h4>
+		<p>{bio}</p>
+	</div>
 );
 ```
 
@@ -937,16 +980,16 @@ const { avatar_url, name, company, bio } = user;
 
 ```js
 return (
-  <div>
-    <img
-      style={{ width: '100px', borderRadius: '25px' }}
-      src={avatar_url}
-      alt={name}
-    />
-    <h2>{name}</h2>
-    <h4>works at {company}</h4>
-    <p>{bio}</p>
-  </div>
+	<div>
+		<img
+			style={{ width: '100px', borderRadius: '25px' }}
+			src={avatar_url}
+			alt={name}
+		/>
+		<h2>{name}</h2>
+		<h4>works at {company}</h4>
+		<p>{bio}</p>
+	</div>
 );
 ```
 
@@ -954,7 +997,7 @@ Vanilla JS
 
 ```js
 const someObject = {
-  name: 'jo koy',
+	name: 'jo koy',
 };
 // this is cool
 someObject.name; // returns 'jo koy'
@@ -976,11 +1019,11 @@ console.log(randomList[0].name);
 
 ```js
 const fetchData = async () => {
-  // fetch data
+	// fetch data
 };
 
 useEffect(() => {
-  fetchData();
+	fetchData();
 }, []);
 ```
 
@@ -997,20 +1040,20 @@ import Starter from './tutorial/03-conditional-rendering/starter/03-hooks-rule.j
 import { useState, useEffect } from 'react';
 
 const Example = () => {
-  const [condition, setCondition] = useState(true);
-  if (condition) {
-    // won't work
-    const [state, setState] = useState(false);
-  }
+	const [condition, setCondition] = useState(true);
+	if (condition) {
+		// won't work
+		const [state, setState] = useState(false);
+	}
 
-  if (condition) {
-    return <h2>Hello There</h2>;
-  }
-  // this will also fail
-  useEffect(() => {
-    console.log('hello there');
-  }, []);
-  return <h2>example</h2>;
+	if (condition) {
+		return <h2>Hello There</h2>;
+	}
+	// this will also fail
+	useEffect(() => {
+		console.log('hello there');
+	}, []);
+	return <h2>example</h2>;
 };
 
 export default Example;
@@ -1040,19 +1083,19 @@ const y = '';
 const z = 0;
 
 if (x) {
-  console.log('x is truthy');
+	console.log('x is truthy');
 }
 
 if (y) {
-  console.log('y is truthy');
+	console.log('y is truthy');
 } else {
-  console.log('y is falsy');
+	console.log('y is falsy');
 }
 
 if (z) {
-  console.log('z is truthy');
+	console.log('z is truthy');
 } else {
-  console.log('z is falsy');
+	console.log('z is falsy');
 }
 
 // Output:
@@ -1099,7 +1142,7 @@ For example:
 
 ```js
 function displayName(name) {
-  return name || 'Anonymous';
+	return name || 'Anonymous';
 }
 
 console.log(displayName('Pizza')); // Output: "Pizza"
@@ -1126,25 +1169,25 @@ Setup Challenge :
 import { useState } from 'react';
 
 const ShortCircuitOverview = () => {
-  // falsy
-  const [text, setText] = useState('');
-  // truthy
-  const [name, setName] = useState('susan');
+	// falsy
+	const [text, setText] = useState('');
+	// truthy
+	const [name, setName] = useState('susan');
 
-  const codeExample = text || 'hello world';
+	const codeExample = text || 'hello world';
 
-  // can't use if statements
-  return (
-    <div>
-      {/* {if(someCondition){"won't work"}} */}
+	// can't use if statements
+	return (
+		<div>
+			{/* {if(someCondition){"won't work"}} */}
 
-      <h4>Falsy OR : {text || 'hello world'}</h4>
-      <h4>Falsy AND {text && 'hello world'}</h4>
-      <h4>Truthy OR {name || 'hello world'}</h4>
-      <h4>Truthy AND {name && 'hello world'}</h4>
-      {codeExample}
-    </div>
-  );
+			<h4>Falsy OR : {text || 'hello world'}</h4>
+			<h4>Falsy AND {text && 'hello world'}</h4>
+			<h4>Truthy OR {name || 'hello world'}</h4>
+			<h4>Truthy AND {name && 'hello world'}</h4>
+			{codeExample}
+		</div>
+	);
 };
 export default ShortCircuitOverview;
 ```
@@ -1173,7 +1216,7 @@ You can use the ! operator to test if a value is not truthy or falsy:
 ```js
 let val = 0;
 if (!val) {
-  console.log('val is falsy');
+	console.log('val is falsy');
 }
 ```
 
@@ -1191,53 +1234,53 @@ bool = !val; // bool is now true
 import { useState } from 'react';
 
 const ShortCircuitOverview = () => {
-  // falsy
-  const [text, setText] = useState('');
-  // truthy
-  const [name, setName] = useState('susan');
-  const [user, setUser] = useState({ name: 'john' });
-  const [isEditing, setIsEditing] = useState(false);
+	// falsy
+	const [text, setText] = useState('');
+	// truthy
+	const [name, setName] = useState('susan');
+	const [user, setUser] = useState({ name: 'john' });
+	const [isEditing, setIsEditing] = useState(false);
 
-  // can't use if statements
-  return (
-    <div>
-      <h2>{text || 'default value'}</h2>
-      {text && (
-        <div>
-          <h2> whatever return</h2>
-          <h2>{name}</h2>
-        </div>
-      )}
-      {/* more info below */}
-      {!text && (
-        <div>
-          <h2> whatever return</h2>
-          <h2>{name}</h2>
-        </div>
-      )}
-      {user && <SomeComponent name={user.name} />}
-      <h2 style={{ margin: '1rem 0' }}>Ternary Operator</h2>
-      <button className='btn'>{isEditing ? 'edit' : 'add'}</button>
-      {user ? (
-        <div>
-          <h4>hello there user {user.name}</h4>
-        </div>
-      ) : (
-        <div>
-          <h2>please login</h2>
-        </div>
-      )}
-    </div>
-  );
+	// can't use if statements
+	return (
+		<div>
+			<h2>{text || 'default value'}</h2>
+			{text && (
+				<div>
+					<h2> whatever return</h2>
+					<h2>{name}</h2>
+				</div>
+			)}
+			{/* more info below */}
+			{!text && (
+				<div>
+					<h2> whatever return</h2>
+					<h2>{name}</h2>
+				</div>
+			)}
+			{user && <SomeComponent name={user.name} />}
+			<h2 style={{ margin: '1rem 0' }}>Ternary Operator</h2>
+			<button className='btn'>{isEditing ? 'edit' : 'add'}</button>
+			{user ? (
+				<div>
+					<h4>hello there user {user.name}</h4>
+				</div>
+			) : (
+				<div>
+					<h2>please login</h2>
+				</div>
+			)}
+		</div>
+	);
 };
 
 const SomeComponent = ({ name }) => {
-  return (
-    <div>
-      <h4>hello there, {name}</h4>
-      <button className='btn'>log out</button>
-    </div>
-  );
+	return (
+		<div>
+			<h4>hello there, {name}</h4>
+			<button className='btn'>log out</button>
+		</div>
+	);
 };
 export default ShortCircuitEvaluation;
 ```
@@ -1278,28 +1321,31 @@ Initial Setup
 import { useState } from 'react';
 
 const ToggleChallenge = () => {
-  const [showAlert, setShowAlert] = useState(false);
+	const [showAlert, setShowAlert] = useState(false);
 
-  const toggleAlert = () => {
-    if (showAlert) {
-      setShowAlert(false);
-      return;
-    }
-    setShowAlert(true);
-  };
+	const toggleAlert = () => {
+		if (showAlert) {
+			setShowAlert(false);
+			return;
+		}
+		setShowAlert(true);
+	};
 
-  return (
-    <div>
-      <button className='btn' onClick={toggleAlert}>
-        toggle alert
-      </button>
-      {showAlert && <Alert />}
-    </div>
-  );
+	return (
+		<div>
+			<button
+				className='btn'
+				onClick={toggleAlert}
+			>
+				toggle alert
+			</button>
+			{showAlert && <Alert />}
+		</div>
+	);
 };
 
 const Alert = () => {
-  return <div className='alert alert-danger'>hello world</div>;
+	return <div className='alert alert-danger'>hello world</div>;
 };
 export default ToggleChallenge;
 ```
@@ -1330,35 +1376,41 @@ import Starter from './tutorial/03-conditional-rendering/starter/07-user-challen
 import { useState } from 'react';
 
 const UserChallenge = () => {
-  const [user, setUser] = useState(null);
+	const [user, setUser] = useState(null);
 
-  const login = () => {
-    // normally connect to db or api
-    setUser({ name: 'vegan food truck' });
-  };
-  const logout = () => {
-    setUser(null);
-  };
+	const login = () => {
+		// normally connect to db or api
+		setUser({ name: 'vegan food truck' });
+	};
+	const logout = () => {
+		setUser(null);
+	};
 
-  return (
-    <div>
-      {user ? (
-        <div>
-          <h4>hello there, {user.name}</h4>
-          <button className='btn' onClick={logout}>
-            logout
-          </button>
-        </div>
-      ) : (
-        <div>
-          <h4>Please Login</h4>
-          <button className='btn' onClick={login}>
-            login
-          </button>
-        </div>
-      )}
-    </div>
-  );
+	return (
+		<div>
+			{user ? (
+				<div>
+					<h4>hello there, {user.name}</h4>
+					<button
+						className='btn'
+						onClick={logout}
+					>
+						logout
+					</button>
+				</div>
+			) : (
+				<div>
+					<h4>Please Login</h4>
+					<button
+						className='btn'
+						onClick={login}
+					>
+						login
+					</button>
+				</div>
+			)}
+		</div>
+	);
 };
 
 export default UserChallenge;
@@ -1461,13 +1513,13 @@ Yes, there will be a bug.
 import { people } from '../../../data';
 
 const List = () => {
-  return (
-    <div>
-      {people.map((person) => {
-        return <div>{person.name}</div>;
-      })}
-    </div>
-  );
+	return (
+		<div>
+			{people.map((person) => {
+				return <div>{person.name}</div>;
+			})}
+		</div>
+	);
 };
 export default List;
 ```
@@ -1478,13 +1530,18 @@ List.jsx
 import { people } from '../../../data';
 import Person from './Person';
 const List = () => {
-  return (
-    <div>
-      {people.map((person) => {
-        return <Person key={person.name} {...person} />;
-      })}
-    </div>
-  );
+	return (
+		<div>
+			{people.map((person) => {
+				return (
+					<Person
+						key={person.name}
+						{...person}
+					/>
+				);
+			})}
+		</div>
+	);
 };
 export default List;
 ```
@@ -1496,23 +1553,27 @@ import React from 'react';
 import avatar from '../../../assets/default-avatar.svg';
 
 export function Person({ name, nickName = 'shakeAndBake', images }) {
-  // before optional chaining
+	// before optional chaining
 
-  // const img =
-  //   (images && images[0] && images[0].small && images[0].small.url) || avatar;
-  // Combining with the nullish coalescing operator ??
-  // const img = images?.[0]?.small?.url ?? avatar;
-  // ?? vs || - please utilize the search engine
+	// const img =
+	//   (images && images[0] && images[0].small && images[0].small.url) || avatar;
+	// Combining with the nullish coalescing operator ??
+	// const img = images?.[0]?.small?.url ?? avatar;
+	// ?? vs || - please utilize the search engine
 
-  const img = images?.[0]?.small?.url || avatar;
+	const img = images?.[0]?.small?.url || avatar;
 
-  return (
-    <div>
-      <img src={img} alt={name} style={{ width: '50px' }} />
-      <h4>{name} </h4>
-      <p>Nickname : {nickName}</p>
-    </div>
-  );
+	return (
+		<div>
+			<img
+				src={img}
+				alt={name}
+				style={{ width: '50px' }}
+			/>
+			<h4>{name} </h4>
+			<p>Nickname : {nickName}</p>
+		</div>
+	);
 }
 ```
 
@@ -1524,7 +1585,7 @@ For example, consider the following function, which takes two parameters, x and 
 
 ```js
 function add(x, y) {
-  return x + y;
+	return x + y;
 }
 ```
 
@@ -1534,7 +1595,7 @@ We can set default values for x,y as:
 
 ```js
 function add(x = 0, y = 0) {
-  return x + y;
+	return x + y;
 }
 ```
 
@@ -1569,26 +1630,43 @@ Setup (for all form videos)
 
 ```js
 const ControlledInputs = () => {
-  return (
-    <form className='form'>
-      <h4>controlled inputs</h4>
-      <div className='form-row'>
-        <label htmlFor='name' className='form-label'>
-          name
-        </label>
-        <input type='text' className='form-input' id='name' />
-      </div>
-      <div className='form-row'>
-        <label htmlFor='email' className='form-label'>
-          Email
-        </label>
-        <input type='email' className='form-input' id='email' />
-      </div>
-      <button type='submit' className='btn btn-block'>
-        submit
-      </button>
-    </form>
-  );
+	return (
+		<form className='form'>
+			<h4>controlled inputs</h4>
+			<div className='form-row'>
+				<label
+					htmlFor='name'
+					className='form-label'
+				>
+					name
+				</label>
+				<input
+					type='text'
+					className='form-input'
+					id='name'
+				/>
+			</div>
+			<div className='form-row'>
+				<label
+					htmlFor='email'
+					className='form-label'
+				>
+					Email
+				</label>
+				<input
+					type='email'
+					className='form-input'
+					id='email'
+				/>
+			</div>
+			<button
+				type='submit'
+				className='btn btn-block'
+			>
+				submit
+			</button>
+		</form>
+	);
 };
 export default ControlledInputs;
 ```
@@ -1606,52 +1684,64 @@ import Starter from './tutorial/06-forms/starter/01-controlled-inputs.jsx';
 ```js
 import { useState } from 'react';
 const ControlledInputs = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
 
-  // const handleChange = (e) => {
-  //   // for now we won't use it
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  // };
+	// const handleChange = (e) => {
+	//   // for now we won't use it
+	//   const name = e.target.name;
+	//   const value = e.target.value;
+	// };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // do something
-    console.log(name, email);
-  };
-  return (
-    <form className='form' onSubmit={handleSubmit}>
-      <h4>controlled inputs</h4>
-      <div className='form-row'>
-        <label htmlFor='name' className='form-label'>
-          name
-        </label>
-        <input
-          type='text'
-          className='form-input'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          id='name'
-        />
-      </div>
-      <div className='form-row'>
-        <label htmlFor='email' className='form-label'>
-          Email
-        </label>
-        <input
-          type='email'
-          className='form-input'
-          id='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <button type='submit' className='btn btn-block'>
-        submit
-      </button>
-    </form>
-  );
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// do something
+		console.log(name, email);
+	};
+	return (
+		<form
+			className='form'
+			onSubmit={handleSubmit}
+		>
+			<h4>controlled inputs</h4>
+			<div className='form-row'>
+				<label
+					htmlFor='name'
+					className='form-label'
+				>
+					name
+				</label>
+				<input
+					type='text'
+					className='form-input'
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+					id='name'
+				/>
+			</div>
+			<div className='form-row'>
+				<label
+					htmlFor='email'
+					className='form-label'
+				>
+					Email
+				</label>
+				<input
+					type='email'
+					className='form-input'
+					id='email'
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
+				/>
+			</div>
+			<button
+				type='submit'
+				className='btn btn-block'
+			>
+				submit
+			</button>
+		</form>
+	);
 };
 export default ControlledInputs;
 ```
@@ -1676,66 +1766,78 @@ import Starter from './tutorial/06-forms/starter/02-user-challenge.jsx';
 import { useState } from 'react';
 import { data } from '../../../data';
 const UserChallenge = () => {
-  const [name, setName] = useState('');
-  const [users, setUsers] = useState(data);
+	const [name, setName] = useState('');
+	const [users, setUsers] = useState(data);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // do something
-    console.log(name);
-    // if no value, do nothing
-    if (!name) return;
-    // if value, setup new user and add to current users
-    const fakeId = Date.now();
-    console.log(fakeId);
-    // const newUser = { id: fakeId, name: name };
-    const newUser = { id: fakeId, name };
-    const updatedUsers = [...users, newUser];
-    setUsers(updatedUsers);
-    // set back to empty
-    setName('');
-  };
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// do something
+		console.log(name);
+		// if no value, do nothing
+		if (!name) return;
+		// if value, setup new user and add to current users
+		const fakeId = Date.now();
+		console.log(fakeId);
+		// const newUser = { id: fakeId, name: name };
+		const newUser = { id: fakeId, name };
+		const updatedUsers = [...users, newUser];
+		setUsers(updatedUsers);
+		// set back to empty
+		setName('');
+	};
 
-  const removeUser = (id) => {
-    const updatedUsers = users.filter((person) => person.id !== id);
-    setUsers(updatedUsers);
-  };
-  return (
-    <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <h4>Add User</h4>
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
-          <input
-            type='text'
-            className='form-input'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            id='name'
-          />
-        </div>
+	const removeUser = (id) => {
+		const updatedUsers = users.filter((person) => person.id !== id);
+		setUsers(updatedUsers);
+	};
+	return (
+		<div>
+			<form
+				className='form'
+				onSubmit={handleSubmit}
+			>
+				<h4>Add User</h4>
+				<div className='form-row'>
+					<label
+						htmlFor='name'
+						className='form-label'
+					>
+						name
+					</label>
+					<input
+						type='text'
+						className='form-input'
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+						id='name'
+					/>
+				</div>
 
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-      {/* render users */}
-      <h2>users</h2>
+				<button
+					type='submit'
+					className='btn btn-block'
+				>
+					submit
+				</button>
+			</form>
+			{/* render users */}
+			<h2>users</h2>
 
-      {users.map((user) => {
-        return (
-          <div key={user.id}>
-            <h4>{user.name}</h4>
-            <button onClick={() => removeUser(user.id)} className='btn'>
-              remove
-            </button>
-          </div>
-        );
-      })}
-    </div>
-  );
+			{users.map((user) => {
+				return (
+					<div key={user.id}>
+						<h4>{user.name}</h4>
+						<button
+							onClick={() => removeUser(user.id)}
+							className='btn'
+						>
+							remove
+						</button>
+					</div>
+				);
+			})}
+		</div>
+	);
 };
 export default UserChallenge;
 ```
@@ -1753,73 +1855,88 @@ import Starter from './tutorial/06-forms/starter/03-multiple-inputs.jsx';
 ```js
 import { useState } from 'react';
 const MultipleInputs = () => {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+	const [user, setUser] = useState({
+		name: '',
+		email: '',
+		password: '',
+	});
 
-  const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+	const handleChange = (e) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(user);
-  };
-  return (
-    <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <h4>Multiple Inputs</h4>
-        {/* name */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
-          <input
-            type='text'
-            className='form-input'
-            id='name'
-            name='name'
-            value={user.name}
-            onChange={handleChange}
-          />
-        </div>
-        {/* email */}
-        <div className='form-row'>
-          <label htmlFor='email' className='form-label'>
-            Email
-          </label>
-          <input
-            type='email'
-            className='form-input'
-            id='email'
-            name='email'
-            value={user.email}
-            onChange={handleChange}
-          />
-        </div>
-        {/* password */}
-        <div className='form-row'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
-          <input
-            type='password'
-            className='form-input'
-            id='password'
-            name='password'
-            value={user.password}
-            onChange={handleChange}
-          />
-        </div>
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(user);
+	};
+	return (
+		<div>
+			<form
+				className='form'
+				onSubmit={handleSubmit}
+			>
+				<h4>Multiple Inputs</h4>
+				{/* name */}
+				<div className='form-row'>
+					<label
+						htmlFor='name'
+						className='form-label'
+					>
+						name
+					</label>
+					<input
+						type='text'
+						className='form-input'
+						id='name'
+						name='name'
+						value={user.name}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* email */}
+				<div className='form-row'>
+					<label
+						htmlFor='email'
+						className='form-label'
+					>
+						Email
+					</label>
+					<input
+						type='email'
+						className='form-input'
+						id='email'
+						name='email'
+						value={user.email}
+						onChange={handleChange}
+					/>
+				</div>
+				{/* password */}
+				<div className='form-row'>
+					<label
+						htmlFor='password'
+						className='form-label'
+					>
+						Password
+					</label>
+					<input
+						type='password'
+						className='form-input'
+						id='password'
+						name='password'
+						value={user.password}
+						onChange={handleChange}
+					/>
+				</div>
 
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-    </div>
-  );
+				<button
+					type='submit'
+					className='btn btn-block'
+				>
+					submit
+				</button>
+			</form>
+		</div>
+	);
 };
 export default MultipleInputs;
 ```
@@ -1834,52 +1951,65 @@ import Starter from './tutorial/06-forms/starter/04-other-inputs.jsx';
 import { useState } from 'react';
 const frameworks = ['react', 'angular', 'vue', 'svelte'];
 const OtherInputs = () => {
-  const [shipping, setShipping] = useState(false);
-  const [framework, setFramework] = useState('react');
+	const [shipping, setShipping] = useState(false);
+	const [framework, setFramework] = useState('react');
 
-  const handleShipping = (e) => {
-    console.log(e.target.checked);
-    setShipping(e.target.checked);
-  };
-  const handleFramework = (e) => {
-    setFramework(e.target.value);
-  };
-  return (
-    <div>
-      <form className='form'>
-        <h4>Other Inputs</h4>
-        {/* name */}
-        <div className='form-row' style={{ textAlign: 'left' }}>
-          <input
-            type='checkbox'
-            checked={shipping}
-            id='shipping'
-            name='shipping'
-            onChange={handleShipping}
-          />
-          <label htmlFor='shipping'> Free Shipping </label>
-        </div>
-        <div className='form-row' style={{ textAlign: 'left' }}>
-          <label htmlFor='framework' className='form-label'>
-            Framework
-          </label>
-          <select
-            name='framework'
-            id='framework'
-            value={framework}
-            onChange={handleFramework}
-          >
-            {frameworks.map((framework) => {
-              return <option key={framework}>{framework}</option>;
-            })}
-          </select>
-        </div>
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-    </div>
-  );
+	const handleShipping = (e) => {
+		console.log(e.target.checked);
+		setShipping(e.target.checked);
+	};
+	const handleFramework = (e) => {
+		setFramework(e.target.value);
+	};
+
+	return (
+		<div>
+			<form className='form'>
+				<h4>Other Inputs</h4>
+				{/* name */}
+				<div
+					className='form-row'
+					style={{ textAlign: 'left' }}
+				>
+					<input
+						type='checkbox'
+						checked={shipping}
+						id='shipping'
+						name='shipping'
+						onChange={handleShipping}
+					/>
+					<label htmlFor='shipping'> Free Shipping </label>
+				</div>
+				<div
+					className='form-row'
+					style={{ textAlign: 'left' }}
+				>
+					<label
+						htmlFor='framework'
+						className='form-label'
+					>
+						Framework
+					</label>
+					<select
+						name='framework'
+						id='framework'
+						value={framework}
+						onChange={handleFramework}
+					>
+						{frameworks.map((framework) => {
+							return <option key={framework}>{framework}</option>;
+						})}
+					</select>
+				</div>
+				<button
+					type='submit'
+					className='btn btn-block'
+				>
+					submit
+				</button>
+			</form>
+		</div>
+	);
 };
 export default OtherInputs;
 ```
@@ -1901,60 +2031,85 @@ The FormData interface provides a way to construct a set of key/value pairs repr
 import { useState } from 'react';
 
 const UncontrolledInputs = () => {
-  const [value, setValue] = useState(0);
+	const [value, setValue] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    // const name = formData.get('name');
-    // console.log(name);
-    // console.log([...formData.entries()]);
-    const newUser = Object.fromEntries(formData);
-    // do something (post request, add to list, etc)
-    console.log(newUser);
-    // Gotcha - re-render won't clear out the values
-    setValue(value + 1);
-    // reset values
-    e.currentTarget.reset();
-  };
-  return (
-    <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <h4>Form Data API</h4>
-        {/* name */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
-          <input type='text' className='form-input' id='name' name='name' />
-        </div>
-        {/* email */}
-        <div className='form-row'>
-          <label htmlFor='email' className='form-label'>
-            Email
-          </label>
-          <input type='email' className='form-input' id='email' name='email' />
-        </div>
-        {/* password */}
-        <div className='form-row'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
-          <input
-            type='password'
-            className='form-input'
-            id='password'
-            name='password'
-          />
-        </div>
+		const formData = new FormData(e.currentTarget);
+		// const name = formData.get('name');
+		// console.log(name);
+		// console.log([...formData.entries()]);
+		const newUser = Object.fromEntries(formData);
+		// do something (post request, add to list, etc)
+		console.log(newUser);
+		// Gotcha - re-render won't clear out the values
+		setValue(value + 1);
+		// reset values
+		e.currentTarget.reset();
+	};
+	return (
+		<div>
+			<form
+				className='form'
+				onSubmit={handleSubmit}
+			>
+				<h4>Form Data API</h4>
+				{/* name */}
+				<div className='form-row'>
+					<label
+						htmlFor='name'
+						className='form-label'
+					>
+						name
+					</label>
+					<input
+						type='text'
+						className='form-input'
+						id='name'
+						name='name'
+					/>
+				</div>
+				{/* email */}
+				<div className='form-row'>
+					<label
+						htmlFor='email'
+						className='form-label'
+					>
+						Email
+					</label>
+					<input
+						type='email'
+						className='form-input'
+						id='email'
+						name='email'
+					/>
+				</div>
+				{/* password */}
+				<div className='form-row'>
+					<label
+						htmlFor='password'
+						className='form-label'
+					>
+						Password
+					</label>
+					<input
+						type='password'
+						className='form-input'
+						id='password'
+						name='password'
+					/>
+				</div>
 
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-    </div>
-  );
+				<button
+					type='submit'
+					className='btn btn-block'
+				>
+					submit
+				</button>
+			</form>
+		</div>
+	);
 };
 export default UncontrolledInputs;
 ```
@@ -1969,8 +2124,8 @@ The Object.fromEntries() static method transforms a list of key-value pairs into
 
 ```js
 const entries = new Map([
-  ['foo', 'bar'],
-  ['baz', 42],
+	['foo', 'bar'],
+	['baz', 42],
 ]);
 
 const obj = Object.fromEntries(entries);
@@ -1997,59 +2152,71 @@ import Starter from './tutorial/07-useRef/starter/01-useRef-basics.jsx';
 import { useEffect, useRef, useState } from 'react';
 
 const UseRefBasics = () => {
-  const [value, setValue] = useState(0);
-  const refContainer = useRef(null);
+	const [value, setValue] = useState(0);
+	const refContainer = useRef(null);
 
-  console.log(refContainer);
-  // {current:null}
-  // set value ourselves or DOM node
+	console.log(refContainer);
+	// {current:null}
+	// set value ourselves or DOM node
 
-  useEffect(() => {
-    // console.log(refContainer.current);
-    refContainer.current.focus();
-  });
+	useEffect(() => {
+		// console.log(refContainer.current);
+		refContainer.current.focus();
+	});
 
-  const isMounted = useRef(false);
+	const isMounted = useRef(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(refContainer.current);
-    const name = refContainer.current.value;
-    console.log(name);
-  };
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(refContainer.current);
+		const name = refContainer.current.value;
+		console.log(name);
+	};
 
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-      return;
-    }
-    console.log('re-render');
-  }, [value]);
+	useEffect(() => {
+		if (!isMounted.current) {
+			isMounted.current = true;
+			return;
+		}
+		console.log('re-render');
+	}, [value]);
 
-  return (
-    <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            Name
-          </label>
-          <input
-            type='text'
-            id='name'
-            ref={refContainer}
-            className='form-input'
-          />
-        </div>
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-      <h1>value : {value}</h1>
-      <button onClick={() => setValue(value + 1)} className='btn'>
-        increase
-      </button>
-    </div>
-  );
+	return (
+		<div>
+			<form
+				className='form'
+				onSubmit={handleSubmit}
+			>
+				<div className='form-row'>
+					<label
+						htmlFor='name'
+						className='form-label'
+					>
+						Name
+					</label>
+					<input
+						type='text'
+						id='name'
+						ref={refContainer}
+						className='form-input'
+					/>
+				</div>
+				<button
+					type='submit'
+					className='btn btn-block'
+				>
+					submit
+				</button>
+			</form>
+			<h1>value : {value}</h1>
+			<button
+				onClick={() => setValue(value + 1)}
+				className='btn'
+			>
+				increase
+			</button>
+		</div>
+	);
 };
 
 export default UseRefBasics;
@@ -2071,11 +2238,11 @@ useToggle.js
 import { useState } from 'react';
 
 const useToggle = (defaultValue) => {
-  const [show, setShow] = useState(defaultValue);
-  const toggle = () => {
-    setShow(!show);
-  };
-  return { show, toggle };
+	const [show, setShow] = useState(defaultValue);
+	const toggle = () => {
+		setShow(!show);
+	};
+	return { show, toggle };
 };
 
 export default useToggle;
@@ -2096,34 +2263,34 @@ useFetchPerson.js
 import { useState, useEffect } from 'react';
 
 const useFetchPerson = (url) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
+	const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const resp = await fetch(url);
-        // console.log(resp);
-        if (!resp.ok) {
-          setIsError(true);
-          setIsLoading(false);
-          return;
-        }
+	useEffect(() => {
+		const fetchUser = async () => {
+			try {
+				const resp = await fetch(url);
+				// console.log(resp);
+				if (!resp.ok) {
+					setIsError(true);
+					setIsLoading(false);
+					return;
+				}
 
-        const user = await resp.json();
-        setUser(user);
-      } catch (error) {
-        setIsError(true);
-        // console.log(error);
-      }
-      // hide loading
-      setIsLoading(false);
-    };
-    fetchUser();
-  }, []);
+				const user = await resp.json();
+				setUser(user);
+			} catch (error) {
+				setIsError(true);
+				// console.log(error);
+			}
+			// hide loading
+			setIsLoading(false);
+		};
+		fetchUser();
+	}, []);
 
-  return { isLoading, isError, user };
+	return { isLoading, isError, user };
 };
 
 export default useFetchPerson;
@@ -2137,37 +2304,37 @@ useFetch.js
 import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  // change state value
-  const [data, setData] = useState(null);
+	const [isLoading, setIsLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
+	// change state value
+	const [data, setData] = useState(null);
 
-  useEffect(() => {
-    // change name
-    const fetchData = async () => {
-      try {
-        const resp = await fetch(url);
+	useEffect(() => {
+		// change name
+		const fetchData = async () => {
+			try {
+				const resp = await fetch(url);
 
-        if (!resp.ok) {
-          setIsError(true);
-          setIsLoading(false);
-          return;
-        }
-        // change to response
-        const response = await resp.json();
-        setData(response);
-      } catch (error) {
-        setIsError(true);
-        // console.log(error);
-      }
-      // hide loading
-      setIsLoading(false);
-    };
-    // invoke fetch data
-    fetchData();
-  }, []);
+				if (!resp.ok) {
+					setIsError(true);
+					setIsLoading(false);
+					return;
+				}
+				// change to response
+				const response = await resp.json();
+				setData(response);
+			} catch (error) {
+				setIsError(true);
+				// console.log(error);
+			}
+			// hide loading
+			setIsLoading(false);
+		};
+		// invoke fetch data
+		fetchData();
+	}, []);
 
-  return { isLoading, isError, data };
+	return { isLoading, isError, data };
 };
 
 export default useFetch;
@@ -2208,16 +2375,19 @@ import { useState } from 'react';
 import NavLinks from './NavLinks';
 
 const Navbar = () => {
-  const [user, setUser] = useState({ name: 'bob' });
-  const logout = () => {
-    setUser(null);
-  };
-  return (
-    <nav className='navbar'>
-      <h5>CONTEXT API</h5>
-      <NavLinks user={user} logout={logout} />
-    </nav>
-  );
+	const [user, setUser] = useState({ name: 'bob' });
+	const logout = () => {
+		setUser(null);
+	};
+	return (
+		<nav className='navbar'>
+			<h5>CONTEXT API</h5>
+			<NavLinks
+				user={user}
+				logout={logout}
+			/>
+		</nav>
+	);
 };
 export default Navbar;
 ```
@@ -2228,19 +2398,22 @@ NavLinks.jsx
 import UserContainer from './UserContainer';
 
 const NavLinks = ({ user, logout }) => {
-  return (
-    <div className='nav-container'>
-      <ul className='nav-links'>
-        <li>
-          <a href='#'>home</a>
-        </li>
-        <li>
-          <a href='#'>about</a>
-        </li>
-      </ul>
-      <UserContainer user={user} logout={logout} />
-    </div>
-  );
+	return (
+		<div className='nav-container'>
+			<ul className='nav-links'>
+				<li>
+					<a href='#'>home</a>
+				</li>
+				<li>
+					<a href='#'>about</a>
+				</li>
+			</ul>
+			<UserContainer
+				user={user}
+				logout={logout}
+			/>
+		</div>
+	);
 };
 export default NavLinks;
 ```
@@ -2249,20 +2422,24 @@ UserContainer.jsx
 
 ```js
 const UserContainer = ({ user, logout }) => {
-  return (
-    <div className='user-container'>
-      {user ? (
-        <>
-          <p>Hello There, {user.name.toUpperCase()}</p>
-          <button type='button' className='btn' onClick={logout}>
-            logout
-          </button>
-        </>
-      ) : (
-        <p>Please Login</p>
-      )}
-    </div>
-  );
+	return (
+		<div className='user-container'>
+			{user ? (
+				<>
+					<p>Hello There, {user.name.toUpperCase()}</p>
+					<button
+						type='button'
+						className='btn'
+						onClick={logout}
+					>
+						logout
+					</button>
+				</>
+			) : (
+				<p>Please Login</p>
+			)}
+		</div>
+	);
 };
 export default UserContainer;
 ```
@@ -2310,20 +2487,28 @@ Challenge
 
 ```js
 const resetList = () => {
-  setPeople(data);
+	setPeople(data);
 };
 
 // JSX
 {
-  people.length < 1 ? (
-    <button className='btn' style={{ marginTop: '2rem' }} onClick={resetList}>
-      reset
-    </button>
-  ) : (
-    <button className='btn' style={{ marginTop: '2rem' }} onClick={clearList}>
-      clear
-    </button>
-  );
+	people.length < 1 ? (
+		<button
+			className='btn'
+			style={{ marginTop: '2rem' }}
+			onClick={resetList}
+		>
+			reset
+		</button>
+	) : (
+		<button
+			className='btn'
+			style={{ marginTop: '2rem' }}
+			onClick={clearList}
+		>
+			clear
+		</button>
+	);
 }
 ```
 
@@ -2331,45 +2516,48 @@ const resetList = () => {
 import React from 'react';
 import { data } from '../../../data';
 const ReducerBasics = () => {
-  const [people, setPeople] = React.useState(data);
+	const [people, setPeople] = React.useState(data);
 
-  const removeItem = (id) => {
-    let newPeople = people.filter((person) => person.id !== id);
-    setPeople(newPeople);
-  };
-  const resetList = () => {
-    setPeople(data);
-  };
-  return (
-    <div>
-      {people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      {people.length < 1 ? (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={resetList}
-        >
-          reset
-        </button>
-      ) : (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={clearList}
-        >
-          clear
-        </button>
-      )}
-    </div>
-  );
+	const removeItem = (id) => {
+		let newPeople = people.filter((person) => person.id !== id);
+		setPeople(newPeople);
+	};
+	const resetList = () => {
+		setPeople(data);
+	};
+	return (
+		<div>
+			{people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			{people.length < 1 ? (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={resetList}
+				>
+					reset
+				</button>
+			) : (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={clearList}
+				>
+					clear
+				</button>
+			)}
+		</div>
+	);
 };
 
 export default ReducerBasics;
@@ -2383,65 +2571,68 @@ import { data } from '../../../data';
 
 // default/initial state
 const defaultState = {
-  people: data,
+	people: data,
 };
 // reducer function
 // whatever state is returned from the function is the new state
 
 const reducer = (state, action) => {
-  return state;
+	return state;
 };
 
 // dispatch({type:'SOME_ACTION'}) an action
 // handle it in reducer, return new state
 
 const ReducerBasics = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+	const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const removeItem = (id) => {
-    // let newPeople = people.filter((person) => person.id !== id);
-    // setPeople(newPeople);
-  };
+	const removeItem = (id) => {
+		// let newPeople = people.filter((person) => person.id !== id);
+		// setPeople(newPeople);
+	};
 
-  const clearList = () => {
-    // setPeople([]);
-  };
-  const resetList = () => {
-    // setPeople(data);
-  };
+	const clearList = () => {
+		// setPeople([]);
+	};
+	const resetList = () => {
+		// setPeople(data);
+	};
 
-  return (
-    <div>
-      {/* switch to state */}
-      {state.people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      {/* switch to state */}
-      {state.people.length < 1 ? (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={resetList}
-        >
-          reset
-        </button>
-      ) : (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={clearList}
-        >
-          clear
-        </button>
-      )}
-    </div>
-  );
+	return (
+		<div>
+			{/* switch to state */}
+			{state.people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			{/* switch to state */}
+			{state.people.length < 1 ? (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={resetList}
+				>
+					reset
+				</button>
+			) : (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={clearList}
+				>
+					clear
+				</button>
+			)}
+		</div>
+	);
 };
 
 export default ReducerBasics;
@@ -2454,62 +2645,65 @@ import { useState, useReducer } from 'react';
 import { data } from '../../../data';
 
 const defaultState = {
-  people: data,
-  isLoading: false,
+	people: data,
+	isLoading: false,
 };
 
 const reducer = (state, action) => {
-  if (action.type === 'CLEAR_LIST') {
-    return { ...state, people: [] };
-  }
+	if (action.type === 'CLEAR_LIST') {
+		return { ...state, people: [] };
+	}
 };
 
 const ReducerBasics = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+	const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const removeItem = (id) => {
-    // let newPeople = people.filter((person) => person.id !== id);
-    // setPeople(newPeople);
-  };
+	const removeItem = (id) => {
+		// let newPeople = people.filter((person) => person.id !== id);
+		// setPeople(newPeople);
+	};
 
-  const clearList = () => {
-    dispatch({ type: 'CLEAR_LIST' });
-    // setPeople([]);
-  };
-  const resetList = () => {
-    // setPeople(data);
-  };
-  console.log(state);
-  return (
-    <div>
-      {state.people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      {state.people.length < 1 ? (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={resetList}
-        >
-          reset
-        </button>
-      ) : (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={clearList}
-        >
-          clear
-        </button>
-      )}
-    </div>
-  );
+	const clearList = () => {
+		dispatch({ type: 'CLEAR_LIST' });
+		// setPeople([]);
+	};
+	const resetList = () => {
+		// setPeople(data);
+	};
+	console.log(state);
+	return (
+		<div>
+			{state.people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			{state.people.length < 1 ? (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={resetList}
+				>
+					reset
+				</button>
+			) : (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={clearList}
+				>
+					clear
+				</button>
+			)}
+		</div>
+	);
 };
 
 export default ReducerBasics;
@@ -2526,61 +2720,64 @@ const RESET_LIST = 'RESET_LIST';
 const REMOVE_ITEM = 'REMOVE_ITEM';
 
 const defaultState = {
-  people: data,
+	people: data,
 };
 
 const reducer = (state, action) => {
-  console.log(action);
-  if (action.type === CLEAR_LIST) {
-    return { ...state, people: [] };
-  }
+	console.log(action);
+	if (action.type === CLEAR_LIST) {
+		return { ...state, people: [] };
+	}
 
-  throw new Error(`No Matching "${action.type}" - action type`);
+	throw new Error(`No Matching "${action.type}" - action type`);
 };
 
 const ReducerBasics = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+	const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const removeItem = (id) => {};
+	const removeItem = (id) => {};
 
-  const clearList = () => {
-    dispatch({ type: CLEAR_LIST });
-  };
+	const clearList = () => {
+		dispatch({ type: CLEAR_LIST });
+	};
 
-  const resetList = () => {};
-  return (
-    <div>
-      {/* switch to state */}
-      {state.people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      {/* switch to state */}
+	const resetList = () => {};
+	return (
+		<div>
+			{/* switch to state */}
+			{state.people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			{/* switch to state */}
 
-      {state.people.length < 1 ? (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={resetList}
-        >
-          reset
-        </button>
-      ) : (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={clearList}
-        >
-          clear
-        </button>
-      )}
-    </div>
-  );
+			{state.people.length < 1 ? (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={resetList}
+				>
+					reset
+				</button>
+			) : (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={clearList}
+				>
+					clear
+				</button>
+			)}
+		</div>
+	);
 };
 
 export default ReducerBasics;
@@ -2599,65 +2796,68 @@ const RESET_LIST = 'RESET_LIST';
 const REMOVE_ITEM = 'REMOVE_ITEM';
 
 const defaultState = {
-  people: data,
+	people: data,
 };
 
 const reducer = (state, action) => {
-  console.log(action);
-  if (action.type === CLEAR_LIST) {
-    return { ...state, people: [] };
-  }
-  if (action.type === RESET_LIST) {
-    return { ...state, people: data };
-  }
-  throw new Error(`No Matching "${action.type}" - action type`);
+	console.log(action);
+	if (action.type === CLEAR_LIST) {
+		return { ...state, people: [] };
+	}
+	if (action.type === RESET_LIST) {
+		return { ...state, people: data };
+	}
+	throw new Error(`No Matching "${action.type}" - action type`);
 };
 
 const ReducerBasics = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+	const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const removeItem = (id) => {};
+	const removeItem = (id) => {};
 
-  const clearList = () => {
-    dispatch({ type: CLEAR_LIST });
-  };
-  const resetList = () => {
-    dispatch({ type: RESET_LIST });
-  };
+	const clearList = () => {
+		dispatch({ type: CLEAR_LIST });
+	};
+	const resetList = () => {
+		dispatch({ type: RESET_LIST });
+	};
 
-  return (
-    <div>
-      {/* switch to state */}
-      {state.people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      {/* switch to state */}
+	return (
+		<div>
+			{/* switch to state */}
+			{state.people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			{/* switch to state */}
 
-      {state.people.length < 1 ? (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={resetList}
-        >
-          reset
-        </button>
-      ) : (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={clearList}
-        >
-          clear
-        </button>
-      )}
-    </div>
-  );
+			{state.people.length < 1 ? (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={resetList}
+				>
+					reset
+				</button>
+			) : (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={clearList}
+				>
+					clear
+				</button>
+			)}
+		</div>
+	);
 };
 
 export default ReducerBasics;
@@ -2677,75 +2877,78 @@ const RESET_LIST = 'RESET_LIST';
 const REMOVE_ITEM = 'REMOVE_ITEM';
 
 const defaultState = {
-  people: data,
+	people: data,
 };
 
 const reducer = (state, action) => {
-  console.log(action);
-  if (action.type === CLEAR_LIST) {
-    return { ...state, people: [] };
-  }
-  if (action.type === RESET_LIST) {
-    return { ...state, people: data };
-  }
-  if (action.type === REMOVE_ITEM) {
-    let newPeople = state.people.filter(
-      (person) => person.id !== action.payload.id
-    );
+	console.log(action);
+	if (action.type === CLEAR_LIST) {
+		return { ...state, people: [] };
+	}
+	if (action.type === RESET_LIST) {
+		return { ...state, people: data };
+	}
+	if (action.type === REMOVE_ITEM) {
+		let newPeople = state.people.filter(
+			(person) => person.id !== action.payload.id
+		);
 
-    return { ...state, people: newPeople };
-  }
+		return { ...state, people: newPeople };
+	}
 
-  return state;
+	return state;
 };
 
 const ReducerBasics = () => {
-  const [state, dispatch] = useReducer(reducer, defaultState);
+	const [state, dispatch] = useReducer(reducer, defaultState);
 
-  const removeItem = (id) => {
-    dispatch({ type: REMOVE_ITEM, payload: { id } });
-  };
+	const removeItem = (id) => {
+		dispatch({ type: REMOVE_ITEM, payload: { id } });
+	};
 
-  const clearList = () => {
-    dispatch({ type: CLEAR_LIST });
-  };
-  const resetList = () => {
-    dispatch({ type: RESET_LIST });
-  };
+	const clearList = () => {
+		dispatch({ type: CLEAR_LIST });
+	};
+	const resetList = () => {
+		dispatch({ type: RESET_LIST });
+	};
 
-  return (
-    <div>
-      {/* switch to state */}
-      {state.people.map((person) => {
-        const { id, name } = person;
-        return (
-          <div key={id} className='item'>
-            <h4>{name}</h4>
-            <button onClick={() => removeItem(id)}>remove</button>
-          </div>
-        );
-      })}
-      {/* switch to state */}
+	return (
+		<div>
+			{/* switch to state */}
+			{state.people.map((person) => {
+				const { id, name } = person;
+				return (
+					<div
+						key={id}
+						className='item'
+					>
+						<h4>{name}</h4>
+						<button onClick={() => removeItem(id)}>remove</button>
+					</div>
+				);
+			})}
+			{/* switch to state */}
 
-      {state.people.length < 1 ? (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={resetList}
-        >
-          reset
-        </button>
-      ) : (
-        <button
-          className='btn'
-          style={{ marginTop: '2rem' }}
-          onClick={clearList}
-        >
-          clear
-        </button>
-      )}
-    </div>
-  );
+			{state.people.length < 1 ? (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={resetList}
+				>
+					reset
+				</button>
+			) : (
+				<button
+					className='btn'
+					style={{ marginTop: '2rem' }}
+					onClick={clearList}
+				>
+					clear
+				</button>
+			)}
+		</div>
+	);
 };
 
 export default ReducerBasics;
@@ -2784,16 +2987,16 @@ When Component Re-Renders :
 ```js
 import { useState } from 'react';
 const Counter = () => {
-  const [count, setCount] = useState(0);
-  return (
-    <button
-      className='btn'
-      onClick={() => setCount(count + 1)}
-      style={{ marginBottom: '1rem' }}
-    >
-      count {count}
-    </button>
-  );
+	const [count, setCount] = useState(0);
+	return (
+		<button
+			className='btn'
+			onClick={() => setCount(count + 1)}
+			style={{ marginBottom: '1rem' }}
+		>
+			count {count}
+		</button>
+	);
 };
 export default Counter;
 ```
@@ -2811,36 +3014,45 @@ import Starter from './tutorial/11-performance/starter/02-lower-state-challenge'
 import { useState } from 'react';
 
 const Form = ({ addPerson }) => {
-  const [name, setName] = useState('');
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name) {
-      alert('Please Provide Name Value');
-      return;
-    }
-    addPerson(name);
-    setName('');
-  };
-  return (
-    <form className='form' onSubmit={handleSubmit}>
-      <div className='form-row'>
-        <label htmlFor='name' className='form-label'>
-          name
-        </label>
-        <input
-          type='text'
-          name='name'
-          id='name'
-          className='form-input'
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <button className='btn btn-block' type='submit'>
-        submit
-      </button>
-    </form>
-  );
+	const [name, setName] = useState('');
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (!name) {
+			alert('Please Provide Name Value');
+			return;
+		}
+		addPerson(name);
+		setName('');
+	};
+	return (
+		<form
+			className='form'
+			onSubmit={handleSubmit}
+		>
+			<div className='form-row'>
+				<label
+					htmlFor='name'
+					className='form-label'
+				>
+					name
+				</label>
+				<input
+					type='text'
+					name='name'
+					id='name'
+					className='form-input'
+					value={name}
+					onChange={(e) => setName(e.target.value)}
+				/>
+			</div>
+			<button
+				className='btn btn-block'
+				type='submit'
+			>
+				submit
+			</button>
+		</form>
+	);
 };
 export default Form;
 ```
@@ -2859,7 +3071,7 @@ Here's an example of using React.memo
 
 ```js
 const MyComponent = React.memo(function MyComponent(props) {
-  /* render logic */
+	/* render logic */
 });
 ```
 
@@ -2871,8 +3083,8 @@ React.memo(Component) - returns memoized component
 
 ```js
 const removePerson = (id) => {
-  const newPeople = people.filter((person) => person.id !== id);
-  setPeople(newPeople);
+	const newPeople = people.filter((person) => person.id !== id);
+	setPeople(newPeople);
 };
 ```
 
@@ -2890,16 +3102,16 @@ Here is an example of how you might use useCallback:
 import React, { useCallback, useState } from 'react';
 
 function MyComponent() {
-  const [data, setData] = useState([]);
-  const handleClick = useCallback(() => {
-    console.log(data);
-  }, [data]);
+	const [data, setData] = useState([]);
+	const handleClick = useCallback(() => {
+		console.log(data);
+	}, [data]);
 
-  return (
-    <div>
-      <button onClick={handleClick}>Click me</button>
-    </div>
-  );
+	return (
+		<div>
+			<button onClick={handleClick}>Click me</button>
+		</div>
+	);
 }
 ```
 
@@ -2916,21 +3128,21 @@ import { useState, useEffect, useCallback } from 'react';
 const url = 'https://api.github.com/users';
 
 const FetchData = () => {
-  const [users, setUsers] = useState([]);
-  const fetchData = useCallback(async () => {
-    try {
-      const response = await fetch(url);
-      const users = await response.json();
-      setUsers(users);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+	const [users, setUsers] = useState([]);
+	const fetchData = useCallback(async () => {
+		try {
+			const response = await fetch(url);
+			const users = await response.json();
+			setUsers(users);
+		} catch (error) {
+			console.log(error);
+		}
+	}, []);
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-  // rest of the logic
+	useEffect(() => {
+		fetchData();
+	}, [fetchData]);
+	// rest of the logic
 };
 ```
 
@@ -2946,17 +3158,17 @@ Here is an example of how you might use useMemo:
 import React, { useMemo } from 'react';
 
 function MyComponent({ data }) {
-  const processedData = useMemo(() => {
-    return data.map((item) => item.toUpperCase());
-  }, [data]);
+	const processedData = useMemo(() => {
+		return data.map((item) => item.toUpperCase());
+	}, [data]);
 
-  return (
-    <div>
-      {processedData.map((item) => (
-        <div key={item}>{item}</div>
-      ))}
-    </div>
-  );
+	return (
+		<div>
+			{processedData.map((item) => (
+				<div key={item}>{item}</div>
+			))}
+		</div>
+	);
 }
 ```
 
@@ -2968,11 +3180,11 @@ In this example, the processedData value is memoized using useMemo and the data 
 
 ```js
 const slowFunction = () => {
-  let value = 0;
-  for (let i = 0; i <= 1000000000; i++) {
-    value += i;
-  }
-  return value;
+	let value = 0;
+	for (let i = 0; i <= 1000000000; i++) {
+		value += i;
+	}
+	return value;
 };
 
 export default slowFunction;
@@ -2991,50 +3203,53 @@ import Starter from './tutorial/11-performance/starter/04-react-18';
 ```js
 import { useState, useTransition } from 'react';
 const LatestReact = () => {
-  const [text, setText] = useState('');
-  const [items, setItems] = useState([]);
-  const [isPending, startTransition] = useTransition();
+	const [text, setText] = useState('');
+	const [items, setItems] = useState([]);
+	const [isPending, startTransition] = useTransition();
 
-  const handleChange = (e) => {
-    setText(e.target.value);
+	const handleChange = (e) => {
+		setText(e.target.value);
 
-    startTransition(() => {
-      const newItems = Array.from({ length: 5000 }, (_, index) => {
-        return (
-          <div key={index}>
-            <img src='/vite.svg' alt='' />
-          </div>
-        );
-      });
-      setItems(newItems);
-    });
-  };
-  return (
-    <section>
-      <form className='form'>
-        <input
-          type='text'
-          className='form-input'
-          value={text}
-          onChange={handleChange}
-        />
-      </form>
-      <h4>Items Below</h4>
-      {isPending ? (
-        'Loading...'
-      ) : (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            marginTop: '2rem',
-          }}
-        >
-          {items}
-        </div>
-      )}
-    </section>
-  );
+		startTransition(() => {
+			const newItems = Array.from({ length: 5000 }, (_, index) => {
+				return (
+					<div key={index}>
+						<img
+							src='/vite.svg'
+							alt=''
+						/>
+					</div>
+				);
+			});
+			setItems(newItems);
+		});
+	};
+	return (
+		<section>
+			<form className='form'>
+				<input
+					type='text'
+					className='form-input'
+					value={text}
+					onChange={handleChange}
+				/>
+			</form>
+			<h4>Items Below</h4>
+			{isPending ? (
+				'Loading...'
+			) : (
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns: '1fr 1fr 1fr',
+						marginTop: '2rem',
+					}}
+				>
+					{items}
+				</div>
+			)}
+		</section>
+	);
 };
 export default LatestReact;
 ```
@@ -3051,11 +3266,11 @@ import React, { lazy, Suspense } from 'react';
 const DataComponent = lazy(() => import('./DataComponent'));
 
 function MyComponent() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <DataComponent />
-    </Suspense>
-  );
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<DataComponent />
+		</Suspense>
+	);
 }
 ```
 
@@ -3063,58 +3278,64 @@ function MyComponent() {
 import { useState, useTransition, lazy, Suspense } from 'react';
 const SlowComponent = lazy(() => import('./SlowComponent'));
 const LatestReact = () => {
-  const [text, setText] = useState('');
-  const [items, setItems] = useState([]);
-  const [isPending, startTransition] = useTransition();
-  const [show, setShow] = useState(false);
-  const handleChange = (e) => {
-    setText(e.target.value);
+	const [text, setText] = useState('');
+	const [items, setItems] = useState([]);
+	const [isPending, startTransition] = useTransition();
+	const [show, setShow] = useState(false);
+	const handleChange = (e) => {
+		setText(e.target.value);
 
-    startTransition(() => {
-      const newItems = Array.from({ length: 5000 }, (_, index) => {
-        return (
-          <div key={index}>
-            <img src='/vite.svg' alt='' />
-          </div>
-        );
-      });
-      setItems(newItems);
-    });
-  };
-  return (
-    <section>
-      <form className='form'>
-        <input
-          type='text'
-          className='form-input'
-          value={text}
-          onChange={handleChange}
-        />
-      </form>
-      <h4>Items Below</h4>
-      {isPending ? (
-        'Loading...'
-      ) : (
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            marginTop: '2rem',
-          }}
-        >
-          {items}
-        </div>
-      )}
-      <button onClick={() => setShow(!show)} className='btn'>
-        toggle
-      </button>
-      {show && (
-        <Suspense fallback={<h4>Loading...</h4>}>
-          <SlowComponent />
-        </Suspense>
-      )}
-    </section>
-  );
+		startTransition(() => {
+			const newItems = Array.from({ length: 5000 }, (_, index) => {
+				return (
+					<div key={index}>
+						<img
+							src='/vite.svg'
+							alt=''
+						/>
+					</div>
+				);
+			});
+			setItems(newItems);
+		});
+	};
+	return (
+		<section>
+			<form className='form'>
+				<input
+					type='text'
+					className='form-input'
+					value={text}
+					onChange={handleChange}
+				/>
+			</form>
+			<h4>Items Below</h4>
+			{isPending ? (
+				'Loading...'
+			) : (
+				<div
+					style={{
+						display: 'grid',
+						gridTemplateColumns: '1fr 1fr 1fr',
+						marginTop: '2rem',
+					}}
+				>
+					{items}
+				</div>
+			)}
+			<button
+				onClick={() => setShow(!show)}
+				className='btn'
+			>
+				toggle
+			</button>
+			{show && (
+				<Suspense fallback={<h4>Loading...</h4>}>
+					<SlowComponent />
+				</Suspense>
+			)}
+		</section>
+	);
 };
 export default LatestReact;
 ```
@@ -3123,9 +3344,9 @@ export default LatestReact;
 
 ```js
 return (
-  <Suspense fallback={<h4>Loading...</h4>}>
-    {/* rest of the logic */}
-    <section>{show && <SlowComponent />}</section>
-  </Suspense>
+	<Suspense fallback={<h4>Loading...</h4>}>
+		{/* rest of the logic */}
+		<section>{show && <SlowComponent />}</section>
+	</Suspense>
 );
 ```
