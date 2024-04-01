@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 const frameworks = ['react', 'angular', 'vue', 'svelte'];
 const OtherInputs = () => {
 	const [shipping, setShipping] = useState(false);
@@ -11,7 +11,6 @@ const OtherInputs = () => {
 	const handleFramework = (e) => {
 		setFramework(e.target.value);
 	};
-
 	return (
 		<div>
 			<form className='form'>
