@@ -346,3 +346,11 @@ ul {
 	text-transform: capitalize;
 	display: inline-block;
 }
+
+.user-container-true {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1rem;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import UserChallenge from './tutorial/08-custom-hooks/starter/02-fetch-data';
-import { data } from './data';
+import Starter from './tutorial/09-context-api/starter/Navbar';
+
 function App() {
 	return (
-		<div className='container'>
-			<UserChallenge />
-		</div>
+		<>
+			<Starter />
+		</>
 	);
 }
 
