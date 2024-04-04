@@ -1,5 +1,5 @@
 import React from 'react';
-import Starter from './tutorial/11-performance/starter/02-lower-state-challenge';
+import Starter from './tutorial/11-performance/starter/03-hooks';
 
 function App() {
 	return (
