@@ -1,10 +1,12 @@
 import React from 'react';
-import Starter from './tutorial/09-context-api/starter/context/Navbar';
+import Starter from './tutorial/10-useReducer/starter/01-useReducer';
 
 function App() {
 	return (
 		<>
-			<Starter />
+			<div className='container'>
+				<Starter />
+			</div>
 		</>
 	);
 }
